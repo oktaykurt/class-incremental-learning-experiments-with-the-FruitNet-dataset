@@ -10,7 +10,7 @@ This project investigates Class-Incremental Learning (Class-IL) techniques to ad
 ## Project Report
 
 For a detailed explanation of the methodology, experiments, results, and analysis, please see the full report:
-[View Full Project Report (PDF)](https://github.com/oktaykurt/class-incremental-learning-experiments-with-the-FruitNet-dataset/blob/main/Class_Incremental_Learning_Experiments_with_the_FruitNet_Dataset-Report.pdf)
+[View Full Project Report (PDF)](https://github.com/oktaykurt/class-incremental-learning-experiments-with-the-FruitNet-dataset/blob/main/Class_Incremental_Learning_Experiments_with_the_FruitNet_Dataset_Report.pdf)
 
 ## Dataset: FruitNet
 
