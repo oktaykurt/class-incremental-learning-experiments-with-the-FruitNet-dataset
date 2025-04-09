@@ -38,10 +38,8 @@ This project implements and compares the following Class-Incremental Learning st
 4.  **EWC (Elastic Weight Consolidation):** A regularization-based method that penalizes changes to weights deemed important for previous tasks, calculated using the Fisher Information Matrix.
 5.  **LwF (Learning without Forgetting):** A distillation-based method where the model trained on a new task is encouraged to maintain similar output probabilities for previous task classes as the model state before learning the new task.
 
-<div align="center">
 ![perf_current](https://github.com/user-attachments/assets/93659854-bbf0-4b90-9475-983cabc16443)
 ![perf_past](https://github.com/user-attachments/assets/df117f7e-0af9-4894-a81a-e9d05e54fb4c)
-</div>
 
 ## Setup & Requirements
 
