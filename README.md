@@ -4,6 +4,9 @@
 
 This project investigates Class-Incremental Learning (Class-IL) techniques to address catastrophic forgetting in neural networks when learning new classes sequentially. Using the FruitNet dataset, this work empirically compares several continual learning strategies, analyzing their ability to balance learning new information (plasticity) while retaining old knowledge (stability). The methods compared include Fine-Tuning, Joint training (as an upper-bound reference), a replay-based approach, Elastic Weight Consolidation (EWC), and Learning without Forgetting (LwF). The experiments are implemented using PyTorch with a ResNet-18 backbone.
 
+![restnet18](https://github.com/user-attachments/assets/93581376-0dd3-4651-832f-77ad93134a8e)
+
+
 ## Project Report
 
 For a detailed explanation of the methodology, experiments, results, and analysis, please see the full report:
@@ -11,8 +14,10 @@ For a detailed explanation of the methodology, experiments, results, and analysi
 
 ## Dataset: FruitNet
 
+![samples](https://github.com/user-attachments/assets/72afede1-9ba2-4b1a-aa15-5c99271027e3)
+
 * **Source:** FruitNet: Indian Fruits Dataset with quality (Good, Bad & Mixed quality)
-    * Available at: [Mendeley Data](https://data.mendeley.com/datasets/b6fftwbr2v/1)
+    * Available at: [Mendeley Data](https://data.mendeley.com/datasets/b6fftwbr2v/1) and [Kaggle](https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality)
 * **Content:** The dataset contains images of 6 types of Indian fruits (this project uses 5: Apple, Banana, Guava, Lime, Orange) categorized by quality (Good, Bad).
 * **Task Setup:** The project defines a Class-Incremental Learning scenario with 5 sequential tasks. Each task introduces two new classes corresponding to the Good and Bad quality images of one fruit type (e.g., Task 0: Apple_Good, Apple_Bad; Task 1: Banana_Good, Banana_Bad, etc.).
 * **Preprocessing:** Images are resized to 192x192 pixels and normalized using standard ImageNet statistics. The dataset is split 80% for training and 20% for testing.
@@ -32,6 +37,11 @@ This project implements and compares the following Class-Incremental Learning st
 3.  **Replay (referred to as iCaRL in code/report):** A replay-based method that stores a small number of exemplar images from previous tasks and includes them in the training data for subsequent tasks. (See Note below regarding implementation).
 4.  **EWC (Elastic Weight Consolidation):** A regularization-based method that penalizes changes to weights deemed important for previous tasks, calculated using the Fisher Information Matrix.
 5.  **LwF (Learning without Forgetting):** A distillation-based method where the model trained on a new task is encouraged to maintain similar output probabilities for previous task classes as the model state before learning the new task.
+   
+![perf_current](https://github.com/user-attachments/assets/93659854-bbf0-4b90-9475-983cabc16443)
+![perf_past](https://github.com/user-attachments/assets/df117f7e-0af9-4894-a81a-e9d05e54fb4c)
+![plasticity_stability](https://github.com/user-attachments/assets/3cb6c12b-87d6-4b07-90c6-bad1ff27677d)
+
 
 ## Setup & Requirements
 
@@ -41,7 +51,7 @@ This project implements and compares the following Class-Incremental Learning st
     pip install torch torchvision numpy Pillow matplotlib seaborn
     ```
 3.  **Prepare Data:**
-    * Download the FruitNet dataset from [Mendeley Data](https://data.mendeley.com/datasets/b6fftwbr2v/1).
+    * Download the FruitNet dataset from [Mendeley Data](https://data.mendeley.com/datasets/b6fftwbr2v/1) or [Kaggle](https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality).
     * Organize the data according to the structure expected by the notebook (e.g., separate folders for 'Good Quality_Fruits' and 'Bad Quality_Fruits', each containing subfolders for fruit types).
     * Update the data paths (`root_good`, `root_bad`) in the notebook (`Class_Incremental_Learning_Experiments_with_the_FruitNet_Dataset.ipynb`) to point to your dataset location.
 
